@@ -1,0 +1,30 @@
+# Sample Nginx configuration
+# Sample Nginx configuration
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+include /etc/nginx/modules-enabled/*.conf;
+
+events {
+    worker_connections 768;
+}
+
+http {
+    server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        server_name _;
+
+        root /var/www/html;
+
+        index index.html index.htm;
+
+        location / {
+            try_files $uri $uri/ =404;
+        }
+    }
+}
+
+
+

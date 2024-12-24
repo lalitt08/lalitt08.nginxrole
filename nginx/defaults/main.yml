@@ -1,0 +1,4 @@
+---
+nginx_version: latest
+
+# defaults file for nginx
